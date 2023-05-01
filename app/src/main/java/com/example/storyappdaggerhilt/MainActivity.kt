@@ -2,6 +2,7 @@ package com.example.storyappdaggerhilt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -13,19 +14,17 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    private lateinit var mainViewModel: MainViewModel
+//    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn: Button = findViewById(R.id.btn_set_token)
+//        val dummyString = viewModel.dummyString
+//        Log.i(TAG, dummyString)
+    }
 
-        btn.setOnClickListener {
-            lifecycleScope.launch {
-                mainViewModel.setToken()
-            }
-        }
+    companion object {
+        private const val TAG = "Main Activity"
     }
 }
