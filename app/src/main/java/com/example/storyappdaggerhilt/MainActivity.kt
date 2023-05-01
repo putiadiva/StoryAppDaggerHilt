@@ -14,14 +14,14 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-//    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val dummyString = viewModel.dummyString
-//        Log.i(TAG, dummyString)
+        val dummyString = viewModel.getDummyStringFromVM()
+        Log.i(TAG, dummyString)
     }
 
     companion object {
