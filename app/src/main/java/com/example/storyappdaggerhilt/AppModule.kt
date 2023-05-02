@@ -41,4 +41,8 @@ class AppModule {
         return UserPreferences(context.dataStore)
     }
 
+    fun provideApiService() {
+
+    }
+
 }
