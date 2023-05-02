@@ -1,22 +1,26 @@
 package com.example.storyappdaggerhilt
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import com.example.storyappdaggerhilt.data.local.UserPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
+    private val testString: String,
     private val userPreferences: UserPreferences
 ) : ViewModel() {
 
-    fun getToken() : LiveData<String> {
-        return userPreferences.getToken().asLiveData()
+    fun getDummyStringFromVM(): String {
+        return "dummy"
     }
 
-    suspend fun setToken() {
-        return userPreferences.saveToken("dummytoken")
+    fun getDependencyString(): String {
+        return "test form dependency: $testString"
+    }
+
+    fun getToken(): String {
+        return runBlocking { userPreferences.getToken().first() }
     }
 }

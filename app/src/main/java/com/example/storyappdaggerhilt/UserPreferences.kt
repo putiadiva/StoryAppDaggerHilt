@@ -1,4 +1,4 @@
-package com.example.storyappdaggerhilt.data.local
+package com.example.storyappdaggerhilt
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -10,25 +10,24 @@ import javax.inject.Inject
 
 class UserPreferences @Inject constructor(
     private val dataStore: DataStore<Preferences>
-    ) {
-
-    private val TOKEN_KEY = stringPreferencesKey("token")
+) {
+    private val TOKEN = stringPreferencesKey("token")
 
     fun getToken(): Flow<String> {
         return dataStore.data.map { preferences ->
-            preferences[TOKEN_KEY] ?: ""
+            preferences[TOKEN] ?: "belum ada token"
         }
     }
 
     suspend fun saveToken(token: String) {
         dataStore.edit { preferences ->
-            preferences[TOKEN_KEY] = token
+            preferences[TOKEN] = token
         }
     }
 
     suspend fun deleteToken() {
         dataStore.edit { preferences ->
-            preferences[TOKEN_KEY] = ""
+            preferences[TOKEN] = ""
         }
     }
 }

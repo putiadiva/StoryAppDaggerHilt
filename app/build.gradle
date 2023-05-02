@@ -48,10 +48,10 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
 
-    //room
+//    //room
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     implementation "androidx.room:room-runtime:2.6.0-alpha01"
-    kapt "androidx.room:room-compiler:2.6.0-alpha01"
+//    kapt "androidx.room:room-compiler:2.6.0-alpha01"
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
