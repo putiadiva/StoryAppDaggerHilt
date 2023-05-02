@@ -21,7 +21,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val dummyString = viewModel.getDummyStringFromVM()
-        Log.i(TAG, dummyString)
+        Log.i(TAG, "Dummy String: $dummyString")
+
+        val testString = viewModel.getDependencyString()
+        Log.i(TAG, "Test String: $testString")
+
+        val token = viewModel.getToken()
+        Log.i(TAG, "Token: $token")
     }
 
     companion object {
